@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VanLooking – Inicio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Fondo bajo notch/isla dinámica */
+    body {
+      background-color: #2A9D8F;
+    }
+    /* Reset para pantalla completa */
+    html, body {
+      margin: 0; padding: 0; height: 100%; max-width: none; overflow: hidden;
+    }
+
+    /* Sección de inicio a pantalla completa */
+    .inicio-seccion {
+      position: relative;
+      width: 100vw; height: 100vh;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    /* Imagen de fondo difuminada */
+    .inicio-seccion::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('hero.jpeg') center/cover no-repeat;
+      background-size: cover;
+      filter: blur(8px);
+      transform: scale(1.05);
+      z-index: 0;
+    }
+
+    /* Degradado encima del blur */
+    .inicio-seccion::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(3,63,45,0.5), rgba(0,0,0,0.5));
+      z-index: 1;
+    }
+
+    /* Contenido por encima */
+    .inicio-seccion > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Logo */
+    .logo-inicio {
+      width: 300px; height: auto; margin-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .logo-inicio { width: 200px; }
+    }
+
+    /* Botones */
+    .botones-inicio {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      width: 60%;
+      max-width: 400px;
+    }
+    .botones-inicio .btn {
+      flex: 1; max-width: none; margin: 0;
+    }
+    @media (max-width: 600px) {
+      .botones-inicio { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="inicio-seccion">
+    <img src="vanlooking-logo.png" alt="VanLooking" class="logo-inicio">
+    <div class="botones-inicio">
+      <a href="login.html"    class="btn btn-secondary">Iniciar sesión</a>
+      <a href="registro.html" class="btn btn-primary">Registrarse</a>
+    </div>
+  </div>
+
+</body>
+</html>

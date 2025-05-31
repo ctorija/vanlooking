@@ -1,0 +1,284 @@
+/* estilos globales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #264653;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
+h1, h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Botones y enlaces */
+.btn, button, nav a {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem;
+  margin: 0.5rem auto;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-primary { background: #2A9D8F; color: #fff; }
+.btn-secondary { background: #264653; color: #fff; }
+button { background: #F4A261; color: #fff; }
+button:hover { background: #E76F51; }
+a { color: #2A9D8F; }
+
+/* Formularios */
+form {
+  width: 100%;
+  margin-top: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  display: block;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Tarjetas de búsqueda */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+.card {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 0.75rem;
+}
+.card-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.card-content p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+.card-content .btn {
+  margin-top: 0.5rem;
+}
+@media (max-width: 600px) {
+  .card img {
+    max-height: 250px;
+  }
+  .card-content h3 {
+    font-size: 1.3rem;
+  }
+  .card-content p {
+    font-size: 1.1rem;
+  }
+  .card-content .btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablas generales */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+th, td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+th {
+  background: #2A9D8F;
+  color: white;
+}
+
+/* Dashboard centrado */
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Paneles de tablas en escritorio (mis vehículos, mis reservas) */
+body.panel-propietario,
+body.panel-reservas {
+  max-width: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 601px) {
+  body.panel-propietario .table-responsive table,
+  body.panel-reservas   .table-responsive table {
+    width: 100%;
+  }
+}
+
+/* Responsive móvil para panel_propietario y panel_reservas */
+@media (max-width: 600px) {
+  body.panel-propietario .table-responsive,
+  body.panel-reservas   .table-responsive {
+    overflow-x: hidden;
+  }
+  body.panel-propietario table thead,
+  body.panel-reservas   table thead {
+    display: none;
+  }
+  body.panel-propietario table,
+  body.panel-propietario tbody,
+  body.panel-reservas   table,
+  body.panel-reservas   tbody {
+    display: block;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  body.panel-propietario tr,
+  body.panel-reservas   tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  body.panel-propietario td,
+  body.panel-reservas   td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border: none;
+    border-top: 1px solid #eee;
+  }
+  body.panel-propietario tr td:first-child,
+  body.panel-reservas   tr td:first-child {
+    border-top: none;
+  }
+  body.panel-propietario td::before,
+  body.panel-reservas   td::before {
+    content: attr(data-label) ":";
+    font-weight: bold;
+    margin-right: 0.5rem;
+    flex-basis: 40%;
+    text-align: left;
+  }
+  body.panel-propietario td[data-label="Acciones"] a,
+  body.panel-reservas   td[data-label="Acciones"] a {
+    width: 100%;
+    margin: 0.25rem 0;
+    display: block;
+  }
+}
+/* bottom-nav común a toda la app (excepto index.html) */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #fff;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Cada enlace: icono + texto centrados */
+.bottom-nav .nav-item {
+  flex: 1;
+  text-decoration: none;
+  color: #264653;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Iconos */
+.bottom-nav .nav-item i {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+
+/* Estado activo */
+.bottom-nav .nav-item.active {
+  color: #2A9D8F;
+}
+
+/* Empuja el contenido para no quedar oculto tras el nav */
+body:not(.no-bottom-nav) {
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+/* === Overrides definitivos para bottom-nav === */
+.bottom-nav {
+  display: flex !important;                /* fuerza flex en fila */
+  flex-direction: row !important;          /* siempre fila */
+  flex-wrap: nowrap !important;            /* sin wrap */
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+
+.bottom-nav .nav-item {
+  flex: none !important;                   /* no crece ni encoge */
+  width: 25% !important;                   /* cada uno 1/4 de ancho */
+  margin: 0 !important;                    /* elimina márgenes globales */
+  padding: 0.25rem 0 !important;           /* padding vertical */
+  text-align: center !important;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.3rem !important;            /* icono legible */
+  margin-bottom: 2px !important;
+}
+
+.bottom-nav .nav-item span {
+  font-size: 0.75rem !important;           /* texto pequeño */
+  line-height: 1 !important;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="index.html">← Volver</a>
+  <h2>Registro de Usuario</h2>
+  <form action="guardar_usuario.php" method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <label>Contraseña:</label>
+    <input type="password" name="password" required>
+    <label>Rol:</label>
+    <select name="rol">
+      <option value="cliente">Cliente</option>
+      <option value="propietario">Propietario</option>
+    </select>
+    <button type="submit">Registrarse</button>
+  </form>
+</body>
+</html>
